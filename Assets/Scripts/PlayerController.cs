@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public static bool PauseMovement;
+
     public float speed;
     public Transform rotatingParts;
     public Collider2D interactionArea;
@@ -19,6 +21,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void Update() {
+        if (PauseMovement) {
+            this.hor = 0;
+            this.vert = 0;
+            return;
+        }
+
         this.hor = Input.GetAxisRaw("Horizontal");
         this.vert = Input.GetAxisRaw("Vertical");
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61d74b9fb60e8a489743bccc7d3aeb4, type: 3}
+  m_Name: TestDialog
+  m_EditorClassIdentifier: 
+  entries:
+  - name: Amy
+    sentence: Hey, how are you? I'm Amy. It's really nice to meet you!
+  - name: You
+    sentence: '...'
+  - name: Amy
+    sentence: Oh, you can't talk - that means you must be the player. Hello!
+  - name: You
+    sentence: '...'

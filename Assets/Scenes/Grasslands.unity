@@ -20848,6 +20848,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: InteractEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  initiatedDialog: {fileID: 11400000, guid: d4ddf38e1091e4047a130d29ff694b6a, type: 2}
 --- !u!1 &1814826590
 GameObject:
   m_ObjectHideFlags: 0

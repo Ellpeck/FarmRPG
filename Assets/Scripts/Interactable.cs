@@ -7,9 +7,12 @@ using UnityEngine.Events;
 public class Interactable : MonoBehaviour {
 
     public InteractEvent onInteract;
+    public Dialog initiatedDialog;
 
     public void Interact(Character character) {
         this.onInteract.Invoke(character);
+        if (this.initiatedDialog)
+            this.initiatedDialog.Initiate();
     }
 
 }
