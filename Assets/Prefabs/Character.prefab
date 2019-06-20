@@ -234,6 +234,7 @@ MonoBehaviour:
   gfxForward: {fileID: 7740002974539914431}
   gfxBack: {fileID: 7740002974138819912}
   desiredVelocity: {x: 0, y: 0}
+  direction: 0
 --- !u!210 &7740002972667161683
 SortingGroup:
   m_ObjectHideFlags: 0

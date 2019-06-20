@@ -7,11 +7,11 @@ public class Character : MonoBehaviour {
     public GameObject gfxForward;
     public GameObject gfxBack;
     public Vector2 desiredVelocity;
-
+    public FacingDirection direction;
+    
     private Rigidbody2D body;
     private Animator animator;
 
-    private FacingDirection direction = FacingDirection.Down;
 
     private void Start() {
         this.body = this.GetComponent<Rigidbody2D>();
@@ -34,11 +34,24 @@ public class Character : MonoBehaviour {
         this.animator.SetBool("Walking", moving);
     }
 
-    private static FacingDirection GetDirectionFromVelocity(Vector2 velocity) {
+    public static FacingDirection GetDirectionFromVelocity(Vector2 velocity) {
         if (Math.Abs(velocity.y) >= Math.Abs(velocity.x)) {
             return velocity.y > 0 ? FacingDirection.Up : FacingDirection.Down;
         } else {
             return velocity.x < 0 ? FacingDirection.Left : FacingDirection.Right;
+        }
+    }
+
+    public static float GetRotationFromFacingDirection(FacingDirection direction) {
+        switch (direction) {
+            case FacingDirection.Up:
+                return 180;
+            case FacingDirection.Right:
+                return 90;
+            case FacingDirection.Left:
+                return -90;
+            default:
+                return 0;
         }
     }
 
