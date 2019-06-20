@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 115972425246325791
     second: LegRight
+  - first:
+      213: 3542127132570728493
+    second: Shadow
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -264,6 +267,27 @@ TextureImporter:
       bones: []
       spriteID: f93450613d0cc8b4abe9d2b27e9a6c13
       internalID: 115972425246325791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 104
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9749cfb64d3024880ac8d8a0e348ac
+      internalID: 3542127132570728493
       vertices: []
       indices: 
       edges: []
