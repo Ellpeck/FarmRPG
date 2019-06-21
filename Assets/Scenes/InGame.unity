@@ -552,6 +552,7 @@ MonoBehaviour:
   mainBox: {fileID: 1459459125}
   nameField: {fileID: 316056455}
   textField: {fileID: 1099769468}
+  textSpeed: 0.01
 --- !u!1 &600863842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1025,21 @@ MonoBehaviour:
   interactionLayers:
     serializedVersion: 2
     m_Bits: 1
+--- !u!114 &1604433479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604433476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9024a71a3d5dc254dbc2df47de3be27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - item: {fileID: 11400000, guid: 7caddb256fc9a924887f4b7c71dc3ca4, type: 2}
+    amount: 1
 --- !u!1001 &7740002974204336665
 PrefabInstance:
   m_ObjectHideFlags: 0
