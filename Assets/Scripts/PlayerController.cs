@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         this.character.desiredVelocity = new Vector2(this.hor, this.vert) * this.speed;
-        this.rotatingParts.rotation = Quaternion.Euler(0, 0, Character.GetRotationFromFacingDirection(this.character.direction));
+        this.rotatingParts.rotation = Quaternion.Euler(0, 0, DirectionUtil.GetRotation(this.character.Direction));
     }
 
 }

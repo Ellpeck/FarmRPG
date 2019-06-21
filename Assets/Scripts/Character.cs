@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Character : MonoBehaviour {
@@ -6,53 +7,45 @@ public class Character : MonoBehaviour {
     public GameObject gfxSide;
     public GameObject gfxForward;
     public GameObject gfxBack;
+    public FacingDirection defaultDirection;
     public Vector2 desiredVelocity;
-    public FacingDirection direction;
-    
+
     private Rigidbody2D body;
     private Animator animator;
 
+    private FacingDirection direction;
+    public FacingDirection Direction {
+        private set {
+            if (this.direction != value) {
+                this.direction = value;
+                this.gfxForward.SetActive(value == FacingDirection.Down);
+                this.gfxBack.SetActive(value == FacingDirection.Up);
+                this.gfxSide.SetActive(value == FacingDirection.Left || value == FacingDirection.Right);
+                this.gfxSide.transform.localScale = new Vector3(value == FacingDirection.Left ? -1 : 1, 1, 1);
+            }
+        }
+        get => this.direction;
+    }
 
     private void Start() {
         this.body = this.GetComponent<Rigidbody2D>();
         this.animator = this.GetComponent<Animator>();
+        this.Direction = this.defaultDirection;
+    }
+
+    [UsedImplicitly]
+    public void FaceCharacter(Character character) {
+        this.Direction = DirectionUtil.Opposite(character.Direction);
     }
 
     private void FixedUpdate() {
         this.body.velocity = this.desiredVelocity;
         var moving = this.desiredVelocity.x != 0 || this.desiredVelocity.y != 0;
         if (moving) {
-            var dir = GetDirectionFromVelocity(this.desiredVelocity);
-            if (this.direction != dir) {
-                this.direction = dir;
-                this.gfxForward.SetActive(dir == FacingDirection.Down);
-                this.gfxBack.SetActive(dir == FacingDirection.Up);
-                this.gfxSide.SetActive(dir == FacingDirection.Left || dir == FacingDirection.Right);
-                this.gfxSide.transform.localScale = new Vector3(dir == FacingDirection.Left ? -1 : 1, 1, 1);
-            }
+            var dir = DirectionUtil.FromVelocity(this.desiredVelocity);
+            this.Direction = dir;
         }
         this.animator.SetBool("Walking", moving);
-    }
-
-    public static FacingDirection GetDirectionFromVelocity(Vector2 velocity) {
-        if (Math.Abs(velocity.y) >= Math.Abs(velocity.x)) {
-            return velocity.y > 0 ? FacingDirection.Up : FacingDirection.Down;
-        } else {
-            return velocity.x < 0 ? FacingDirection.Left : FacingDirection.Right;
-        }
-    }
-
-    public static float GetRotationFromFacingDirection(FacingDirection direction) {
-        switch (direction) {
-            case FacingDirection.Up:
-                return 180;
-            case FacingDirection.Right:
-                return 90;
-            case FacingDirection.Left:
-                return -90;
-            default:
-                return 0;
-        }
     }
 
 }
